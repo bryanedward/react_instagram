@@ -15,7 +15,7 @@ export const List = styled.ul`
     padding: 5px;
     position: fixed;
     right: 0;
-    top: -20px;
+    top: -5px;
     transform: scale(.5);
     z-index: 1;
   }
