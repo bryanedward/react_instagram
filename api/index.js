@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const { ApolloServer } = require('apollo-server-express')
+//importa el esquema con las funcionalidades de la aokucacion
 const { resolvers, typeDefs } = require('./schema')
 const jwt = require('express-jwt')
 
@@ -9,6 +10,7 @@ process.env.JWT_SECRET = process.env.JWT_SECRET || 'somereallylongsecretkey'
 
 const PORT = process.env.PORT || 3500
 const app = express()
+//el json de los datos
 const { categories } = require('./db.json')
 
 app.use(cors())

@@ -10,11 +10,10 @@ export const GlobalStyle = createGlobalStyle`
         
         *, *::before, *::after {
                 box-sizing: inherit;
+                margin-right: 10px;
         }
         
-        ul, li, h1, h2, h3, p, button {
-                margin: 0;
-        }
+       
 
         ul {
                 list-style: none;
