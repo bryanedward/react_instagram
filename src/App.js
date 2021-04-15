@@ -14,11 +14,12 @@ export const App = () => {
       <GlobalStyle />
       <Logo />
       {details ? (
-        <PhotoCardWithQuery id={details} />
+        <PhotoCardWithQuery id={details}/>
       ) : (
+        //pantalla principal
         <Fragment>
           <ListOfCategories />
-          <ListOfPhotoCard categoriesId={2} />
+          <ListOfPhotoCard />
         </Fragment>
       )}
     </div>
