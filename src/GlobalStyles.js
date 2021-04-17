@@ -1,6 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
-
-
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
         html {
@@ -10,11 +8,10 @@ export const GlobalStyle = createGlobalStyle`
         
         *, *::before, *::after {
                 box-sizing: inherit;
+                margin-right: 10px;
         }
         
-        ul, li, h1, h2, h3, p, button {
-                margin: 0;
-        }
+       
 
         ul {
                 list-style: none;
@@ -42,4 +39,4 @@ export const GlobalStyle = createGlobalStyle`
                 padding-bottom: 10px;
         }
 
-        `
+        `;
