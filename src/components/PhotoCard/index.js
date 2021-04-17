@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState, Fragment } from "react";
-import { Button, ImgWrapper, Img, Article } from "./style";
-import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
+import { ImgWrapper, Img, Article } from "./style";
 import { UsearScreen } from "../../hooks/useLocalStorage";
+import { FavButton } from "../FavButton";
+import { ToggleLikeMutation } from "../../container/ToggleLikeMutation";
 
 const IMAGE_DEFAULT =
   "https://i.postimg.cc/y8qgfJ0z/pexels-alexandra-holbea-6056878.jpg";
@@ -40,9 +41,6 @@ export const PhotoCard = ({ id, likes = 0, src = IMAGE_DEFAULT }) => {
   const key = `like-${id}`;
   const [likeds, setLiked] = useLocalStorage(key, false);
 
-  //cambiat de icono
-  const Icon = likeds ? MdFavorite : MdFavoriteBorder;
-
   return (
     <Article ref={element}>
       {show && (
@@ -52,10 +50,25 @@ export const PhotoCard = ({ id, likes = 0, src = IMAGE_DEFAULT }) => {
               <Img src={src} />
             </ImgWrapper>
           </a>
-          <Button onClick={() => setLiked(!likeds)}>
-            <Icon size="30px" />
-            {likes} Gustos!!
-          </Button>
+          <ToggleLikeMutation>
+            {(togglelike) => {
+              const favButtonLikes = () => {
+                !likeds && togglelike({
+                  variables: {
+                    input: {id}
+                  }
+                });
+                setLiked(!likeds);
+              };
+              return (
+                <FavButton
+                  likeds={likeds}
+                  likes={likes}
+                  onClickLike={favButtonLikes}
+                />
+              );
+            }}
+          </ToggleLikeMutation>
         </Fragment>
       )}
     </Article>
