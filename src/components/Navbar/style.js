@@ -1,5 +1,6 @@
 import Styled from "styled-components";
 import { Link as LinkRouter} from '@reach/router'
+import {FadeIn} from '../../style/animation'
 
 export const Nav = Styled.nav`
   max-width: 100%;
@@ -17,9 +18,24 @@ export const Nav = Styled.nav`
 
 
 export const Link = Styled(LinkRouter)`
-  justity-content:center;
+  justify-content:center;
   text-decoration: none;
+  align-items: center;
+  display: inline-flex;
   text-transform: uppercase;
   color: #888;
-  align-items:center;
+
+  &[aria-current]{
+    color: black;
+
+    &:after{
+    ${FadeIn({ time: "0.4s" })}
+    content: '__';
+    bottom: 30px;
+    position: absolute;
+    font-size:3rem;
+    line-height: 20px;
+    }
+  
+  }
 `;

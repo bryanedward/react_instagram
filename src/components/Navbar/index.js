@@ -4,13 +4,13 @@ import { MdHome, MdFavoriteBorder, MdPersonOutline } from "react-icons/md";
 export const Navbar = () => {
   return (
     <Nav>
-      <Link to="#">
+      <Link to="/">
         <MdHome size="30px" />
       </Link>
-      <Link to="#">
+      <Link to="/fav">
         <MdFavoriteBorder size="30px" />
       </Link>
-      <Link to="#">
+      <Link to="/profile">
         <MdPersonOutline size="30px" />
       </Link>
     </Nav>
