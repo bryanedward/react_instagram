@@ -1,9 +1,11 @@
-import React from "react"
-import {Svg} from './style'
+import React from "react";
+import { Svg } from "./style";
+import { Link } from "@reach/router";
 
-export const Logo = (props) =>  (
+export const Logo = (props) => (
+  <Link to="/">
     <Svg
-     width={356.77}
+      width={356.77}
       height={165.223}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="71.615 -7.611 356.77 165.223"
@@ -88,4 +90,5 @@ export const Logo = (props) =>  (
       </g>
       <style />
     </Svg>
-  )
+  </Link>
+);

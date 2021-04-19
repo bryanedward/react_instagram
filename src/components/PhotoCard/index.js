@@ -3,6 +3,7 @@ import { ImgWrapper, Img, Article } from "./style";
 import { UsearScreen } from "../../hooks/useLocalStorage";
 import { FavButton } from "../FavButton";
 import { ToggleLikeMutation } from "../../container/ToggleLikeMutation";
+import { Link } from "@reach/router";
 
 const IMAGE_DEFAULT =
   "https://i.postimg.cc/y8qgfJ0z/pexels-alexandra-holbea-6056878.jpg";
@@ -45,19 +46,20 @@ export const PhotoCard = ({ id, likes = 0, src = IMAGE_DEFAULT }) => {
     <Article ref={element}>
       {show && (
         <Fragment>
-          <a href={`/?detail=${id}`}>
+          <Link to={`/detail/${id}`}>
             <ImgWrapper>
               <Img src={src} />
             </ImgWrapper>
-          </a>
+          </Link>
           <ToggleLikeMutation>
             {(togglelike) => {
               const favButtonLikes = () => {
-                !likeds && togglelike({
-                  variables: {
-                    input: {id}
-                  }
-                });
+                !likeds &&
+                  togglelike({
+                    variables: {
+                      input: { id },
+                    },
+                  });
                 setLiked(!likeds);
               };
               return (

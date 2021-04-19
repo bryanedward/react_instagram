@@ -1,8 +1,8 @@
 import  styled  from 'styled-components';
+import {Link as LinkRouter} from '@reach/router'
 
 
-
-export const  Anchor = styled.a`
+export const  Link = styled(LinkRouter)`
    text-decoration: none;
    text-align: center;
    width: 100%;
